@@ -1,19 +1,21 @@
 import * as Location from "expo-location";
 import { StatusBar } from "expo-status-bar";
 import { Fontisto } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
-	View,
-	Text,
-	Dimensions,
 	ActivityIndicator,
-	StyleSheet,
+	Dimensions,
 	ScrollView,
+	StyleSheet,
+	Text,
+	View,
 } from "react-native";
-import { API_URL, API_KEY } from "@env";
+
+import { API_KEY } from "@env";
+const API_URL = "https://api.openweathermap.org/data/2.5";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
-const icons = {
+const ICONS = {
 	Atmosphere: "cloudy-gusts",
 	Clear: "day-sunny",
 	Clouds: "cloudy",
@@ -38,6 +40,7 @@ export default function App() {
 			setOk(false);
 			return;
 		}
+		if (ok) console.log("User granted on GeoLocationPermission.");
 
 		const {
 			coords: { latitude, longitude },
@@ -102,7 +105,7 @@ export default function App() {
 								}}
 							>
 								<Fontisto
-									name={icons[day.weather[0].main]}
+									name={ICONS[day.weather[0].main]}
 									size={84}
 									color="white"
 								/>
@@ -140,29 +143,28 @@ const styles = StyleSheet.create({
 	day: {
 		width: SCREEN_WIDTH,
 		flexDirection: "row",
-		justifyContent: "space-between",
+		justifyContent: "space-around",
 		alignItems: "flex-start",
-		paddingHorizontal: 20,
+		paddingHorizontal: 5,
 	},
 	temp: {
-		fontSize: 120,
+		fontSize: 100,
 		fontWeight: "600",
 		color: "white",
 	},
 	description: {
 		marginTop: 10,
-		fontSize: 30,
+		fontSize: 36,
 		fontWeight: "500",
 		color: "white",
 	},
 	tinyText: {
-		marginTop: -5,
-		color: "white",
-		fontSize: 25,
+		fontSize: 24,
 		fontWeight: "500",
+		color: "white",
 	},
 	specificDate: {
-		fontSize: 25,
+		fontSize: 30,
 		fontWeight: "600",
 		color: "black",
 	},

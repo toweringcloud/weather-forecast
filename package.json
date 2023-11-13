@@ -15,9 +15,9 @@
 		"location",
 		"mobile"
 	],
-	"type": "module",
 	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
+		"start:clean": "npx react-native start --reset-cache",
 		"start": "expo start",
 		"preview": "expo start --tunnel",
 		"android": "expo start --android",
