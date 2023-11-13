@@ -4,8 +4,8 @@
 
 -   current location as city
 -   current temperature as degree
--   current weather status as icons
--   today & additional 7 days weathers
+-   current weather status as vector icon
+-   scroll view of today & additional 7 days weather
 
 [android demo]
 ![Alt text](https://github.com/toweringcloud/weather-forecast/blob/main/demo/snapshot1.gif?raw=true)
